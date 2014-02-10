@@ -1,0 +1,1 @@
+Na pasta Helpers são guardadas funções, pedaços de arquivos ou bibliotecas padrões da aplicação.

@@ -1,0 +1,1 @@
+O controller welcome é o controller padrão do CodeIgniter
