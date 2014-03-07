@@ -36,12 +36,12 @@ class Login extends CI_Controller {
     }
     
     //Função para quando se esquece a Senha
-    public function esqueciSenha(){
+    public function esqueci_senha(){
         echo "Esqueci Minha Senha";
     }
     
     //Função para quando se esquece o usuário
-    public function esqueciUsuario(){
+    public function esqueci_usuario(){
         echo "Esqueci Usuário";
     }
 

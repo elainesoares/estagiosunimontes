@@ -2,7 +2,7 @@
     Created on : 04/03/2014, 13:50:40
     Author     : Elaine
 */
-html{
+/*html{
     margin: 0;
     padding: 0;
     height: 100%;
@@ -19,16 +19,16 @@ body{
     width:100%;
     top:0;
     height:70px;
-    /*background-color: yellowgreen;*/
+    background-color: yellowgreen;
     background-color: #ECF5DE;
     
     
-/*    background-image:-moz-linear-gradient(top, #fff, rgba(255,255,255,0.5));
+    background-image:-moz-linear-gradient(top, #fff, rgba(255,255,255,0.5));
     background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(rgba(255,255,255,0.5)));
     background-image:-webkit-linear-gradient(top, #fff, rgba(255,255,255,0.5));
     background-image:-o-linear-gradient(top, #fff, rgba(255,255,255,0.5));
     background-image:linear-gradient(to bottom, #fff, rgba(255,255,255,0.5));
-    background-repeat:repeat-x;*/
+    background-repeat:repeat-x;
     z-index:200;
     -webkit-box-shadow:0 3px 5px rgba(0,0,0,0.05);
     -moz-box-shadow:0 3px 5px rgba(0,0,0,0.05);
@@ -40,19 +40,19 @@ body{
     margin-right: auto;     
     max-width: 1140px;
     padding: 30px 30px 30px 30px;
-}
+}*/
 
 /*============================== FOOTER ======================================*/
 .footer{
     margin-left: auto;
     margin-right: auto;
-    width: 500px;
+    /*width: 500px;*/
     padding: 0;
     clear: both;
     text-align: center;
     list-style: none;
     display: block;
-    height: 400px;
+    /*height: 400px;*/
 }
 
 .footer ul{
@@ -66,8 +66,110 @@ body{
 }
 
 .footer ul li a{
-    padding: 2px 10px;
+    padding: 30px;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.footer ul li a:hover{
+    padding: 30px;
     display: inline-block;
     text-decoration: none;
 }
+
+.buttonLogin{
+    float: right;
+}
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formLogin{
+    width: 250px;
+}
+
+/*============================== REDES SOCIAIS ===============================*/
+.redesSociaisTop{
+    float: left;
+    margin-left: 446px;
+    margin-top: 15px;
+    width: 130px;
+}
+
+.facebook{
+    background-image: url('/estagiosunimontes/assets/img/icons/facebook_preto.png');
+    background-repeat: no-repeat;
+    float:left;
+    height: 35px;
+    width: 35px;
+    margin-right: 30px;
+}
+
+.facebook:hover{
+    background-image: url('/estagiosunimontes/assets/img/icons/facebook_azul.png');
+}
+
+.twitter{
+    background-image: url('/estagiosunimontes/assets/img/icons/twitter_preto.png');
+    background-repeat: no-repeat;
+    float:left;
+    height: 35px;
+    width: 35px;
+    margin-right: 30px;
+}
+
+.twitter:hover{
+    background-image: url('/estagiosunimontes/assets/img/icons/twitter_azul.png');
+}
+
+/*============================================================================*/
+
+.logo {
+  float: left;
+  height: 50px;
+  padding: 25px;
+  font-size: 18px;
+  line-height: 20px;
+}
+.logo:hover,
+.logo:focus {
+  text-decoration: none;
+}
+
+/*============================================================================*/
+.home_left{
+    float: left;
+    /*background: pink;*/
+    width: 400px;
+    /*height: 400px;*/
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.home_right{
+    float: right;
+    /*background: pink;*/
+    width: 400px;
+    /*height: 400px;*/
+    margin-right: 30px;
+}
+
+.home_header{
+    width: 100%;
+    height: 500px;
+    background: #F3F3F3;
+    margin-top: -20px;
+}
+
+.detalhe_home{
+    background-image: url('/estagiosunimontes/assets/img/detalhe_home.png');
+    width: 100%;
+    height: 100px;
+    margin-top: -42px;
+}
+
+
 

@@ -27,19 +27,16 @@ class MainController extends CI_Controller {
 //            $data['usuarios'] = $this->usuario_model->get_all("");    //Recebe os valores retornados do método get_all
 //            $this->load->view('main_view', $data);   //Chama a view welcome_message
 //            $this->load->view('login_view');
-
-        $this->load->library('parser');
-        $dados = array(
-            'AbaTitle' => 'Estágios Unimontes',
-            'Entries' => array(
-                array('Title' => 'Título 1', 'body' => 'Conteúdo 1'),
-                array('Title' => 'Título 2', 'body' => 'Conteúdo 2'),
-                array('Title' => 'Título 3', 'body' => 'Conteúdo 3'),
-                array('Title' => 'Título 4', 'body' => 'Conteúdo 4'),
-                array('Title' => 'Título 5', 'body' => 'Conteúdo 5')
-            )
+//        $this->load->library('parser');
+//        $dados = array(
+//            'Abatitle' => 'ESTÁGIOS | UNIVERSIDADE ESTADUAL DE MONTES CLAROS',
+//        );
+//        $this->parser->parse('index', $dados);  //index é o nome da view e dados a variável com os dados
+        $data = array(
+            'Abatitle' => 'ESTÁGIOS | UNIVERSIDADE ESTADUAL DE MONTES CLAROS',
         );
-        $this->parser->parse('index', $dados);  //index é o nome da view e dados a variável com os dados
+        $this->load->library('template');
+        $this->template->load('template', 'login_cadastro/index', $data);
     }
 
     public function create_usuario() {
