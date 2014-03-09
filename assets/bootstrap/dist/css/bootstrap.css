@@ -277,7 +277,7 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
-  background-color: #fff;
+  /*background-color: #fff;*/
 }
 input,
 button,
@@ -3940,7 +3940,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  /*background-color: #F4F7FD;*/
+  background-color: #E05333;
   /*border-color: #e7e7e7;*/
   -webkit-box-shadow:0 6px 13px #ccc;
     -moz-box-shadow:0 6px 13px #ccc;
@@ -3951,7 +3951,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default .logo {
-  color: #777;
+  color: #FFFFFF;
 }
 
 .navbar-default .navbar-brand:hover,
@@ -3963,7 +3963,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #777;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #777;
+  color: #FFFFFF
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {

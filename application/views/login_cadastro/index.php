@@ -1,14 +1,40 @@
 <!--Conteúdo da tela de login e cadastro-->
 
+<!--Banner-->
 <div class="home_header">
-    <div class="container">
-        <div class="home_left">
-
-        </div>
-        <div class="home_right">
-            <a href="empresainstituicao/cadastro" class="btn btn-primary" style="padding: 11px 103px; margin-bottom: 30px; font-weight: bold; margin-top: 130px;">Cadastre-se como Empresa</a>
-            <a href="estudante/cadastro" class="btn btn-primary" style="padding: 11px 103px; margin-bottom: 30px; font-weight: bold; background: #A5BBEF;">Cadastre-se como Acadêmico</a>
+    <div class="container_center">
+        <div class="banner">
         </div>
     </div>
 </div>
-<div class="detalhe_home"></div>
+
+<!--Área Empresa-->
+<div class="home_empresa">
+    <div class="container_center">
+        <div class="container_empresa">
+            <img class="icon_empresa" src="<?php echo base_url(); ?>assets/img/icons/empresa.png" />
+            <div class="texto_empresa">
+                <h2>Cadastre sua Empresa</h2>
+                <h4>Surgiu alguma vaga de <span class="destaque_red">estágio</span> na sua <span class="destaque_red">empresa</span>?</h4>
+                <h5>Divulgue agora mesmo para os alunos da UNIMONTES</h5>
+                <a class="btn buttonCadastreEmpresa">Cadastre sua Empresa</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Área Acadêmico-->
+<div class="home_academico">
+    <div class="container_center">
+        <div class="container_academico">
+            <img class="icon_academico" src="<?php echo base_url(); ?>assets/img/icons/academico.png" />
+            <div class="texto_academico">
+                <h2>É acadêmico? Está á procura de Estágio?</h2>
+                <h4>Visualize aqui as <span class="destaque_red">vagas</span> de estágio ofertadas <br />
+                    pelas <span class="destaque_red">empresas</span></h4>
+                <a class="btn buttonCadastreAcademico">Cadastre-se</a>
+            </div>
+        </div>
+    </div>
+</div>
+    

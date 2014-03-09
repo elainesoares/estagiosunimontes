@@ -41,6 +41,19 @@ body{
     max-width: 1140px;
     padding: 30px 30px 30px 30px;
 }*/
+/*============================== GERAL =======================================*/
+body{
+    background-color: #FCF9F2;
+    padding-bottom: 0px !important;
+}
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*============================================================================*/
+
 
 /*============================== FOOTER ======================================*/
 .footer{
@@ -55,36 +68,67 @@ body{
     /*height: 400px;*/
 }
 
-.footer ul{
+.footerTop ul{
     padding: 0;
     margin: 0;
     list-style: none;
 }
 
-.footer ul li{
+.footerTop ul li{
     display: inline;
 }
 
-.footer ul li a{
+.footerTop ul li a{
     padding: 30px;
     display: inline-block;
     text-decoration: none;
     cursor: pointer;
+    color: #ACCECC;
 }
 
-.footer ul li a:hover{
+.footerTop ul li a:hover{
     padding: 30px;
     display: inline-block;
     text-decoration: none;
+    color: #FFFFFF;
 }
+
+.footerTop ul li a:active{
+    color: #FFFFFF;
+}
+
+.footerTop{
+    background: #4E8680;
+    border-top: 1px solid #43756E;
+    height: 90px;
+    text-align: center;
+    color: #ACCECC;
+}
+
+.footerBottom{
+    height: 40px;
+    background: #43756E;
+    color: #A1C6C3;
+}
+
+.container_footer{
+    width: 850px;
+    padding-top: 10px;
+}
+
+.borderMenuFooter{
+    border-right: 2px solid #ACCDCC;
+}
+
 
 .buttonLogin{
     float: right;
 }
 
-.center{
+.container_center{
     margin-left: auto;
     margin-right: auto;
+    width: 980px;
 }
 
 .formLogin{
@@ -94,13 +138,13 @@ body{
 /*============================== REDES SOCIAIS ===============================*/
 .redesSociaisTop{
     float: left;
-    margin-left: 446px;
+    margin-left: 424px;
     margin-top: 15px;
     width: 130px;
 }
 
 .facebook{
-    background-image: url('/estagiosunimontes/assets/img/icons/facebook_preto.png');
+    background-image: url('/estagiosunimontes/assets/img/icons/facebook_preto2.png');
     background-repeat: no-repeat;
     float:left;
     height: 35px;
@@ -113,7 +157,7 @@ body{
 }
 
 .twitter{
-    background-image: url('/estagiosunimontes/assets/img/icons/twitter_preto.png');
+    background-image: url('/estagiosunimontes/assets/img/icons/twitter_preto2.png');
     background-repeat: no-repeat;
     float:left;
     height: 35px;
@@ -124,6 +168,27 @@ body{
 .twitter:hover{
     background-image: url('/estagiosunimontes/assets/img/icons/twitter_azul.png');
 }
+
+/*================================== LOGIN ===============================*/
+.login{
+    cursor: pointer;
+    background: #C62408;
+    font-weight: bold; 
+    margin-right: 30px;
+    padding-top: 15px;
+    text-align: center;
+    height: 70px;
+    width: 90px;
+    font-size: 20px;
+}
+
+.login:hover{
+    background-image: url('/estagiosunimontes/assets/img/menu_hover.png');
+    height: 84px;
+    width: 91px;
+}
+
+/*============================================================================*/
 
 /*============================================================================*/
 
@@ -159,9 +224,101 @@ body{
 
 .home_header{
     width: 100%;
-    height: 500px;
-    background: #F3F3F3;
-    margin-top: -20px;
+    height: 379px;
+    border-bottom: 2px solid #E7DEBC;
+}
+
+.banner{
+    width: 100%;
+    height: 379px;
+    background-image: url('/estagiosunimontes/assets/img/fundo_banner.png');
+    background-repeat: no-repeat;
+}
+
+.home_empresa{
+    height: 207px;
+    background-color: #F2ECCE;
+    border-bottom: 2px solid #E7DEBC;
+}
+
+.icon_empresa{
+    height: 182px;
+    margin-top: 15px;
+    float: left;
+}
+
+.container_empresa{
+    width: 900px;
+    height: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.texto_empresa{
+    float: left;
+    margin-left: 30px;
+    width: 688px;
+    color: #445260;
+}
+
+.destaque_red{
+    color: #DF5233;
+}
+
+.buttonCadastreEmpresa{
+    background-color: #8AC1B2 !important;
+    margin-top: 20px;
+    color: #FFFFFF !important;
+    font-size: 15px;
+    border: none !important;
+    font-weight: bold !important;
+    padding: 10px 50px 10px 50px !important;
+    font-size: 18px !important;
+}
+
+.buttonCadastreEmpresa:hover{
+    background: #4E8680 !important;
+}
+
+.home_academico{
+    height: 207px;
+}
+
+.icon_academico{
+    height: 182px;
+    margin-top: 15px;
+    float: left;
+}
+
+.container_academico{
+    width: 900px;
+    height: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.texto_academico{
+    float: left;
+    margin-left: 30px;
+    width: 688px;
+    color: #445260;
+}
+
+.buttonCadastreAcademico{
+    background-color: #8AC1B2 !important;
+    margin-top: 20px;
+    color: #FFFFFF !important;
+    font-size: 15px;
+    border: none !important;
+    font-weight: bold !important;
+    padding: 10px 96px 10px 96px !important;
+    font-size: 18px !important;
+}
+
+.buttonCadastreAcademico:hover{
+    background: #4E8680 !important;
 }
 
 .detalhe_home{
