@@ -16,8 +16,8 @@
             <div class="texto_empresa">
                 <h2>Cadastre sua Empresa</h2>
                 <h4>Surgiu alguma vaga de <span class="destaque_red">estágio</span> na sua <span class="destaque_red">empresa</span>?</h4>
-                <h5>Divulgue agora mesmo para os alunos da UNIMONTES</h5>
-                <a class="btn buttonCadastreEmpresa">Cadastre sua Empresa</a>
+                <h5>Divulgue agora mesmo para os acadêmicos da UNIMONTES</h5>
+                <a href="<?php echo base_url(); ?>empresainstituicao/cadastro" class="btn buttonCadastreEmpresa">Cadastre sua Empresa</a>
             </div>
         </div>
     </div>

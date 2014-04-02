@@ -8,10 +8,12 @@
 
         <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/bootstrap/docs/assets/ico/favicon.ico">
 
-        <link href="<?php echo base_url(); ?>assets/css/layout.css" rel="stylesheet">    
+        <link href="<?php echo base_url(); ?>assets/css/layout.css" rel="stylesheet">  
+        <!--<link href="<?php // echo base_url(); ?>assets/css/cep/bootstrap.css" rel="stylesheet">-->  
 
         <!-- Bootstrap core CSS -->
         <link href="<?php echo base_url(); ?>assets/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        <!--<link href="<?php echo base_url(); ?>assets/bootstrap/docs/dist/css/bootstrap.min.css" rel="stylesheet">-->
 
         <!-- Custom styles for this template -->
         <link href="<?php echo base_url(); ?>assets/bootstrap/docs/examples/non-responsive/non-responsive.css" rel="stylesheet">
@@ -45,3 +47,4 @@
         <script src="<?php echo base_url(); ?>assets/bootstrap/docs/assets/js/docs.min.js"></script>
     </body>
 </html>
+

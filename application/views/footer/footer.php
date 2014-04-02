@@ -2,7 +2,7 @@
     <div class="container_footer center">
         <ul>
             <li><a href="<?php echo base_url(); ?>">Home</a><span class="borderMenuFooter"></span></li>
-            <li><a href="<?php echo base_url(); ?>">Empresa</a><span class="borderMenuFooter"></span></li>
+            <li><a href="<?php echo base_url(); ?>empresainstituicao/cadastro">Empresa</a><span class="borderMenuFooter"></span></li>
             <li><a href="<?php echo base_url(); ?>">Acadêmico</a><span class="borderMenuFooter"></span></li> 
             <li><a href="<?php echo base_url(); ?>">Login</a><span class="borderMenuFooter"></span></li>
             <li><a href="<?php echo base_url(); ?>">Ajuda</a><span class="borderMenuFooter"></span></li>

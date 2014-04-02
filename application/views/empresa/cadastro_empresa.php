@@ -1,80 +1,75 @@
-<div class="container">
-    <form name='login' action='' method='POST'>
-        <div class="">
-            <label class="" >Nome da Empresa</label>
-            <div class="">
-                <input class="" type="text" id="nome" name='nome'>
+<div class="container_center">
+    <h3>Cadastro de Empresa</h3>
+    <form class="form_cadastroEmpresa" name='cadastro_empresa' action='' method='POST'>
+        <img src="<?php echo base_url(); ?>assets/img/imagem-gray.png" alt="..." class="img-thumbnail margin-bottom float-left" >
+        <span class="float-left margin-left">
+            Suba a logo da sua empresa
+            <div class="div-upploadarquivo margin-top">
+                <input type="file" name="arquivo" class="btn buttonUploadFile"/>
+                <input type="submit" name="enviar" value="Enviar" style="border:1px solid #CCCCCC; width: 100px; height: 30px;" class="margin-top"/>
             </div>
-        </div>
-        <div class="">
-            <label class="" >Nome do Responsável</label>
-            <div class="">
-                <input class="" type="text" id="nome_responsavel" name='nome_responsavel'>
+        </span>
+        <div class="clear"></div>
+        <div class="form_rigth">
+            <div class="group">
+                <label>Nome da Empresa</label>
+                <div class="">
+                    <input class="input-large" type="text" id="nome" name='nome'>
+                </div>
             </div>
-        </div>
-        <div class="">
-            <label class="" >CNPJ</label>
-            <div class="">
-                <input class="" type="text" id="cnpj" name='cnpj'>
-            </div>
-        </div>
-        <div class="">
-            <label class="" for="">Telefone 1</label>
-            <input class="" type="text" id="ddd1" name='ddd1'>
-            <input type="text" id="telefone1" name='telefone1'>
-        </div>
 
-        <div class="">
-            <label class="" for="">Telefone 2</label>
-            <input class="" type="text" id="ddd2" name='ddd2'>
-            <input type="text" id="telefone2" name='telefone2'>
-        </div>
-        <div class="">
-            <label class="" for="">Email</label>
             <div class="">
-                <input class="" type="email" id='email' nome='email' placeholder="teste@exemplo.com">
+                <label class="" style="margin-top: -6px;">Nome do Responsável</label>
+                <div class="">
+                    <input class="input-large" type="text" id="nome_responsavel" name='nome_responsavel'>
+                </div>
             </div>
-        </div>
 
-        <!-- Tab Endereço -->
-        <div class="">
-            <label class="">CEP</label>
             <div class="">
-                <input class="" id="cep" name="cep" type="text" maxlength="9" placeholder="Informe o CEP" />
+                <label class="" for="">Usuário</label>
+                <div class="">
+                    <input type="text" id="usuario" name='usuario'>
+                </div>
             </div>
-        </div>
 
-        <div class="">
-            <label class="">Logradouro</label>
             <div class="">
-                <input class="" id="rua" name="rua" type="text"/>
+                <label class="" for="">Senha</label>
+                <div class="">
+                    <input class="input-mini" type="password" id="senha" name='senha'>
+                </div>
             </div>
-        </div>
 
-        <div class="">
-            <label class="">Nº</label>
             <div class="">
-                <input id="num" name="num" type="text"/>
+                <label class="" for="">Repetir Senha</label>
+                <div class="">
+                    <input class="input-mini" type="password" id="repetir_senha" name='repetir_senha' >
+                </div>
             </div>
-        </div>
 
-        <div class="">
-            <label class="">Bairro</label>
             <div class="">
-                <input id="bairro" name="bairro" type="text"/>
+                <label class="">Endereço</label>
+                <div class="">
+                    <input class="input-large" id="endereco" name="endereco" type="text"/>
+                </div>
             </div>
-        </div>
-
-        <div class="">
-            <label class="">Cidade</label>
             <div class="">
+                <label class="">Nº</label>
+                <input class="input-mini" id="num" name="num" type="text"/>
+                <span style="margin-left: 10px; margin-right: 10px;">Complemento</span>
+                <input class="input-medium" id="complemento" name="complemento" type="text" />
+            </div>
+
+            <div class="">
+                <label class="">Bairro</label>
+                <input class="input-medium" id="bairro" name="bairro" type="text"/>
+                <span style="margin-left: 10px; margin-right: 10px;">Cep</span>
+                <input class="input-mini" id="cep" name="cep" type="text" maxlength="9" style="width: 100px;"/>
+            </div>
+
+            <div class="">
+                <label class="">Cidade</label>
                 <input id="cidade" name="cidade" type="text"/>
-            </div>
-        </div>
-
-        <div class="">
-            <label class="">UF</label>
-            <div class="">
+                <span style="margin-left: 10px; margin-right: 10px;">UF</span>
                 <select id="cidade" name="cidade">
                     <option value="ac">AC</option>
                     <option value="al">AL</option>
@@ -105,77 +100,74 @@
                     <option value="to">TO</option>
                 </select>
             </div>
+
+            <div class="">
+                <label class="" for="">Telefone Principal</label>
+                <input class="" type="text" id="telefone_principal" name='telefone_principal'>
+            </div>
+
         </div>
 
-        <div class="">
-            <label class="" for="">Web Site</label>
+        <div class="form_left">
             <div class="">
-                <input class="" type="text" id='web_site' name='web_site' placeholder="www.exemplo.com.br">
+                <label class="" >CNPJ</label>
+                <div class="">
+                    <input class="input-large" type="text" id="cnpj" name='cnpj'>
+                </div>
             </div>
-        </div>
-        <div class="">
-            <label class="" for="">Facebook</label>
             <div class="">
-                <input class="" type="text" id='facebook' name='facebook'>
+                <label class="" for="">Email</label>
+                <div class="">
+                    <input class="input-large" type="email" id='email' nome='email' placeholder="teste@exemplo.com">
+                </div>
             </div>
-        </div>
-        <div class="">
-            <label class="" for="">Twitter</label>
             <div class="">
-                <input class="" type="text" id='twitter' name='twitter'>
+                <label class="" for="">Web Site</label>
+                <div class="">
+                    <input class="input-large" type="text" id='web_site' name='web_site' placeholder="www.exemplo.com.br">
+                </div>
             </div>
-        </div>
-        <div class="">
-            <label class="" for="">Linkedin</label>
-            <div class="">
-                <input class="" type="text" id='linkedin' name='linkedin'>
-            </div>
-        </div>
 
-        <div class="">
-            <label class="" for="">Email</label>
             <div class="">
-                <input class="" type="email" id='email' nome='email' placeholder="teste@exemplo.com">
+                <label class="" for="">Facebook</label>
+                <div class="">
+                    <input class="input-large" type="text" id='facebook' name='facebook'>
+                </div>
             </div>
-        </div>
-
-        <span style='width: 100%; margin-bottom: 1px solid '></span>
-
-        <div class="">
-            <label class="" for="">Usuário</label>
             <div class="">
-                <input type="text" id="usuario" name='usuario'>
+                <label class="" for="">Twitter</label>
+                <div class="">
+                    <input class="input-large" type="text" id='twitter' name='twitter'>
+                </div>
             </div>
-        </div>
-
-        <div class="">
-            <label class="" for="">Senha</label>
             <div class="">
-                <input type="password" id="senha" name='senha'>
+                <label class="" for="">Linkedin</label>
+                <div class="">
+                    <input class="input-large" type="text" id='linkedin' name='linkedin'>
+                </div>
             </div>
-        </div>
-
-        <div class="">
-            <label class="l" for="">Repetir Senha</label>
             <div class="">
-                <input type="password" id="repetir_senha" name='repetir_senha' >
+                <label class="" style='width: 108px; margin-top: -6px;' for="">Horário de Funcionamento</label>
+                <input class="input-mini" type="text" id="horario_inicio" name='horario_inicio'>
+                <span>ás</span>
+                <input class="input-mini" type="text" id="horario_termino" name="horario_termino">
             </div>
-        </div>
-        <div class="">
-            <label class="" style='width: 200px; margin-right: 20px; margin-left: -40px' for="">Horário de Funcionamento</label>
-            <input class="" type="text" id="horario_inicio" name='horario_inicio'>
-            <span>ás</span>
-            <input class="" type="text" id="horario_termino" name="horario_termino">
-        </div>
-        <div class="">
-            <label class="" for="">Informações Adicionais</label>
+            <div style="margin-top: 5px;">
+                <label class="" style='width: 108px;' for="">Horário de Sábado</label>
+                <input class="input-mini" type="text" id="horario_sabadoinicio" name='horario_inicio'>
+                <span>ás</span>
+                <input class="input-mini" type="text" id="horario_sabadotermino" name="horario_termino">
+            </div>
             <div class="">
-                <textarea class='' rows="4" cols="50" id="informacoes_adicionais" name='informacoes_adicionais'></textarea>
+                <label class="" for="">Informações Adicionais</label>
+                <div class="">
+                    <textarea class='' rows="4" cols="50" id="informacoes_adicionais" name='informacoes_adicionais'></textarea>
+                </div>
             </div>
+            <button name='' type="submit" class="btn" style='float: right; margin-left: 30px; margin-bottom: 30px; margin-top: 30px;'>Cadastrar</button>
+            <div style='float: right; margin-left: 30px; margin-bottom: 30px; margin-top: 30px;'><a href="<?php echo base_url();?>" class="btn">Cancelar</a></div>
+            
         </div>
-        <div class='clear' style='margin-bottom: 20px;'></div>
-        <div style='float: left; margin-left: 52px; margin-bottom: 20px; margin-top: 50px;'><a href="login.php" class="btn btn-large btn-primary">Cancelar</a></div>
-        <button name='' type="submit" class="btn btn-large btn-primary" style='float: left; margin-left: 52px; margin-bottom: 20px; margin-top: 50px;'>Cadastrar</button>
-        <div class='clear'></div>
+        <div class="clear"></div>
     </form>
 </div>
