@@ -1,6 +1,7 @@
 <?php
 require(APPPATH.'core/usuario.php'); 
 require(APPPATH.'models/redeSocial.php');
+require(APPPATH.'models/setor.php');
  
 /**
  * Description of Empresa
@@ -16,6 +17,7 @@ class Empresa extends Usuario{
     private $telefone;
     private $redeSocial;
     private $idEmpresa;
+    private $setor;
 
     //Método construtor
     function __construct() {
@@ -51,6 +53,14 @@ class Empresa extends Usuario{
     public function addEmpresa($dataEmpresa){
         $dataEmpresa['idFkUsuario'] = $this->getAtributo('idUsuario');  //Acrescenta no array $dataEmpresa a FK do Usuario
         $this->db->insert('empresa', $dataEmpresa);     //Insere na tabela empresa
+    }
+    
+    public function insertSetor($dataSetor){
+        $this->setor = new Setor;    //Instancia um objeto da classe Setor
+        $this->setor->setAtributo('nome', $dataSetor['nome']);     //Seta o valor do atributo nome na classe Setor
+        $this->setor->setAtributo('usuario', $dataSetor['usuario']);    //Seta o valor do atributo usuario na classe Setor
+        $this->setor->setAtributo('senha', $dataSetor['senha']);    //Seta o valor do atributo senha na classe Setor
+        $this->setor->addSetor($this->getMaxIdEmpresa());
     }
 }
 

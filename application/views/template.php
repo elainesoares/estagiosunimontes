@@ -30,14 +30,16 @@
     </head>
 
     <body>
-        <!--Include do menu da página de Login e Cadastro-->
-        <?php $this->load->view('menu/menu_login')?>
+        <!--<div style='min-height: 100%; position: relative'>-->
+            <!--Include do menu da página de Login e Cadastro-->
+            <?php $this->load->view('menu/menu_login')?>
 
-        <!--Include do conteúdo-->
-        <?php echo $contents; ?>
+            <!--Include do conteúdo-->
+            <?php echo $contents; ?>
 
-        <!--Include do footer-->
-        <?php $this->load->view('footer/footer'); ?>
+            <!--Include do footer-->
+            <?php $this->load->view('footer/footer'); ?>
+        <!--</div>-->
     </body>
 </html>
 

@@ -74,6 +74,8 @@ create table empresa(
 create table setor(
 	id int(4) auto_increment not null,
 	nome varchar(20) not null,
+        usuario varchar(12) not null,
+	senha varchar(10) not null,
 	idFkEmpresa int(4) not null,
 	primary key(id),
 	foreign key(idFkEmpresa) references empresa(id)

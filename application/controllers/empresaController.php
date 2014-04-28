@@ -9,57 +9,30 @@ if (!defined('BASEPATH'))
  * @author Elaine Soares Moreira
  */
 class EmpresaController extends CI_Controller {
-
-    public function index() {
-        $this->load->library('form_validation');    //Carregando a library de validação
-        
-        $this->form_validation->set_rules('nome', 'Nome da Empresa', 'required');
-        $this->form_validation->set_rules('usuario', 'Usuario', 'required');
-        $this->form_validation->set_rules('senha', 'Senha', 'required');
-        $this->form_validation->set_rules('repetirSenha', 'Repita a Senha', 'required|matches[senha]');
-        $this->form_validation->set_rules('endereco', 'Endereco', 'required');
-        $this->form_validation->set_rules('numero', 'Nº', 'required');
-        $this->form_validation->set_rules('complemento', 'Complemento', 'required');
-        $this->form_validation->set_rules('bairro', 'Bairro', 'required');
-        $this->form_validation->set_rules('cep', 'Cep', 'required');
-        $this->form_validation->set_rules('telefonePrincipal', 'Telefone 1', 'required');
-        $this->form_validation->set_rules('cnpj', 'CNPJ', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'required');
-        $this->form_validation->set_rules('webSite', 'Web Site', 'required');
-        $this->form_validation->set_rules('facebook', 'Facebook', 'required');
-        $this->form_validation->set_rules('horarioInicio', 'Horário de Funcionamento', 'required');
-        $this->form_validation->set_rules('horarioTermino', 'Horário de Funcionamento', 'required');
-        $this->form_validation->set_rules('horarioSabadoInicio', 'Horário de Sábado', 'required');
-        $this->form_validation->set_rules('horarioSabadoTermino', 'Horário de Sábado', 'required');
-        $this->form_validation->set_rules('informacoesAdicionairs', 'Informações Adicionais', 'required');
-        
-        
-        if ($this->form_validation->run() == FALSE) {
-            echo 'ERROR';
-            $this->template->load('template', 'empresa/cadastro_empresa');
-        } 
-        else {
-            echo 'OK';
-        }
-    }
-
-    function username_check($str) {
-        if ($str == 'test') {
-            $this->validation->set_message('username_check', 'The %s field can not be the word "test"');
-            return FALSE;
-        } 
-        else {
-            return TRUE;
-        }
-    }
-
     /* Método de Cadastro de Empresa */
-
     public function cadastro() {
         $data = array(
             'Abatitle' => 'Cadastro de Empresa | UNIVERSIDADE ESTADUAL DE MONTES CLAROS',
         );
         $this->template->load('template', 'empresa/cadastro_empresa', $data);
+    }
+    
+    public function cadastro_setor(){
+        $data = array(
+            'Abatitle' => 'Cadastro de Setor | UNIVERSIDADE ESTADUAL DE MONTES CLAROS',
+        );
+        $this->template->load('template', 'empresa/cadastro_setor', $data);
+    }
+    
+    public function insertSetor(){
+        $dataSetor = array(
+            'nome'      => $this->input->post('nome'),
+            'usuario'   => $this->input->post('usuario'),
+            'senha'     => $this->input->post('senha')
+        );
+        
+        $this->load->model('empresa');
+        $this->empresa->insertSetor($dataSetor);
     }
 
     public function insertEmpresa() {  
@@ -105,6 +78,8 @@ class EmpresaController extends CI_Controller {
         $this->empresa->addEmpresa($dataEmpresa);   //Cadastra a Empresa
         $this->empresa->insertRedeSocial($dataRedeSocial);
         
+        $this->cadastro_setor();
+        
 //        $this->load->model('telefone');    //Carregando o model empresa
 //        $this->load->model('idioma');    //Carregando o model empresa
 //        $this->telefone->addTelefone($dataUsuario, $dataTelefone);
@@ -121,8 +96,6 @@ class EmpresaController extends CI_Controller {
 //            $this->session->set_flashdata('error', 'Erro ao Efetuar Cadastro');
 //            redirect('empresaInstituicao/cadastro');
 //        }
-        
-        
 //        
     }
 
