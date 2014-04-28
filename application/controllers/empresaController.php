@@ -96,15 +96,14 @@ class EmpresaController extends CI_Controller {
             'informacoesAdicionais'             => $this->input->post('informacoesAdicionais')
         );
         
-        echo 'Informacoes: '.$dataEmpresa['informacoesAdicionais'];
-        
         //Telefone do usuario
         $telefone = $this->input->post('telefonePrincipal');
          
         $this->load->model('empresa');    //Carregando o model empresa
         $this->empresa->addUsuario($dataUsuario);   
         $this->empresa->insertTelefone($telefone);
-        $this->empresa->addEmpresa($dataEmpresa);
+        $this->empresa->addEmpresa($dataEmpresa);   //Cadastra a Empresa
+        $this->empresa->insertRedeSocial($dataRedeSocial);
         
 //        $this->load->model('telefone');    //Carregando o model empresa
 //        $this->load->model('idioma');    //Carregando o model empresa

@@ -37,21 +37,8 @@ class Usuario extends CI_Model{
    public function getAtributo($campo){
        return $this->$campo;
    }
-    
-    /* Método para adicionar o Usuário no Banco de Dados
-     * $dataUsuario: dados a serem inseridos na tabela usuario
-     * $telefone: telefone a ser inserido na tabela telefone
-     */ 
-    public function addUsuario($dataUsuario, $telefone){
-        $this->db->insert('usuario', $dataUsuario);     //Inserindo no banco de dados. Tabela usuario
-        
-        $this->tel = new Telefone; //Instancia um objeto da classe Telefone
-        $this->tel->setAtributo('telefone', $telefone);     //Seta o valor do atributo telefone na classe Telefone
-        $idUsuario = $this->getMaxId();         //recupera o max id de usuario
-        $this->tel->addTelefone($this->idUsuario);
-    }
-    
-    /*Método para retornar o ultimo id cadastrado
+   
+   /*Método para retornar o ultimo id cadastrado
      * return: retorna o max id (ultimo id)
      */
     public function getMaxId(){
@@ -62,6 +49,24 @@ class Usuario extends CI_Model{
         
         return $this->idUsuario;      //Retorna o max id da tabela usuario
     }
+    
+    /* Método que chamará a função addTelefone da classe Telefone
+     * $telefone: numero de telefone
+     */
+    public function insertTelefone($telefone){
+        $this->tel = new Telefone; //Instancia um objeto da classe Telefone
+        $this->tel->setAtributo('telefone', $telefone);     //Seta o valor do atributo telefone na classe Telefone
+        $this->tel->addTelefone($this->getMaxId());
+    }
+
+    /* Método para adicionar o Usuário no Banco de Dados
+     * $dataUsuario: dados a serem inseridos na tabela usuario
+     * $telefone: telefone a ser inserido na tabela telefone
+     */ 
+    public function addUsuario($dataUsuario){
+        $this->db->insert('usuario', $dataUsuario);     //Inserindo no banco de dados. Tabela usuario
+    }
+    
 }
 
 

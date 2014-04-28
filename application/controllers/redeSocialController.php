@@ -13,4 +13,8 @@
  */
 class RedeSocialController extends CI_Controller{
     //put your code here
+    
+    public function teste(){
+        echo 'teste';
+    }
 }

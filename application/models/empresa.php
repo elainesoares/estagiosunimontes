@@ -1,5 +1,6 @@
 <?php
 require(APPPATH.'core/usuario.php'); 
+require(APPPATH.'models/redeSocial.php');
  
 /**
  * Description of Empresa
@@ -13,6 +14,35 @@ class Empresa extends Usuario{
     private $horarioFuncionamentoSabadoTermino;
     private $cnpj;
     private $telefone;
+    private $redeSocial;
+    private $idEmpresa;
+
+    //Método construtor
+    function __construct() {
+        parent::__construct();
+    }
+    
+    /* Método para retornar o ultimo id cadastrado
+     * return: retorna o max id (ultimo id)
+     */
+    public function getMaxIdEmpresa() {
+        $this->db->select_max('id');    //Recupera o valor mais alto do id... (ou seja, o ultimo id cadastrado)
+        $query = $this->db->get('empresa');     //da tabela empresa. 
+        $resultado = $query->row();     //Como está sendo retornado apenas uma linhas, pode-se utilizar o método row()
+        $this->idEmpresa = $resultado->id;    //Salva o id da empresa na variável $idEmpresa
+        
+        return $this->idEmpresa;      //Retorna o max id da tabela empresa
+    }
+    
+    /* Método que chamará a função addTelefone da classe Telefone
+     * $dataRedeSocial: dados da rede social
+     */
+    public function insertRedeSocial($dataRedeSocial){
+        $this->redeSocial = new RedeSocial;    //Instancia um objeto da classe RedeSocial
+        $this->redeSocial->setAtributo('nomeRede', $dataRedeSocial['nomeRede']);     //Seta o valor do atributo nomeRede na classe RedeSocial
+        $this->redeSocial->setAtributo('enderecoRede', $dataRedeSocial['enderecoRede']);    //Seta o valor do atributo enderecoRede na classe RedeSocial
+        $this->redeSocial->addRedeSocial($this->getMaxIdEmpresa());
+    }
 
     /* Descrição: Método de inserção de Empresa/Insituição
      * Parâmetros: $dataEmpresa: Dados da Empresa
