@@ -87,6 +87,10 @@ h1, h2, h3, h4, h5, h6{
     float: right;
 }
 
+.cursor{
+    cursor: pointer;
+}
+
 .clear{
     clear: both;
 }
@@ -229,7 +233,7 @@ h1, h2, h3, h4, h5, h6{
 
 /*============================================================================*/
 
-/*============================================================================*/
+/*============================== LOGO ========================================*/
 
 .logo {
   float: left;
@@ -549,12 +553,12 @@ label{
 }
 
 /*================================CADASTRO EMPRESA=====================================*/
-.form_rigth{
+.form_left{
     width: 490px;
     float: left;
 }
 
-.form_left{
+.form_rigth{
     float: left;
     width: 490px;
 }
@@ -562,6 +566,7 @@ label{
 .form_cadastroEmpresa{
     margin-top: 30px;
     font-size: 13px;
+    margin-bottom: 30px;
 }
 
 .div-upploadarquivo{
@@ -574,6 +579,19 @@ label{
 
 .buttonUploadFile{
     width: 310px;
+}
+
+.iconsCadastro{
+    width: 20px;
+}
+
+.errorForm{
+    background: red;
+}
+
+.spanError{
+    display: none;
+    color: red;
 }
 
 

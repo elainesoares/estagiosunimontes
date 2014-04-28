@@ -4,22 +4,6 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 class MainController extends CI_Controller {
-
-    /**
-     * Index Page for this controller.
-     *
-     * Maps to the following URL
-     * 		http://example.com/index.php/welcome
-     * 	- or -  
-     * 		http://example.com/index.php/welcome/index
-     * 	- or -
-     * Since this controller is set as the default controller in 
-     * config/routes.php, it's displayed at http://example.com/
-     *
-     * So any other public methods not prefixed with an underscore will
-     * map to /index.php/welcome/<method_name>
-     * @see http://codeigniter.com/user_guide/general/urls.html
-     */
     /* O método index é automaticamente chamado quando não se define o método */
     public function index() {
         //$this->load->helper("form");    //Adiciona a biblioteca (helper) form ao sistema
@@ -33,7 +17,7 @@ class MainController extends CI_Controller {
 //        );
 //        $this->parser->parse('index', $dados);  //index é o nome da view e dados a variável com os dados
         $data = array(
-            'Abatitle' => 'ESTÁGIOS | UNIVERSIDADE ESTADUAL DE MONTES CLAROS',
+            'AbaTitle' => 'ESTÁGIOS | UNIVERSIDADE ESTADUAL DE MONTES CLAROS',
         );
         $this->load->library('template');
         $this->template->load('template', 'login_cadastro/index', $data);
