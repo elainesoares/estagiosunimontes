@@ -1,6 +1,8 @@
 <?php
+require(APPPATH.'controllers/empresaController.php');
+
 /**
- * Description of login
+ * Description of LoginController
  *
  * @author Elaine
  */
@@ -11,30 +13,36 @@ class LoginController extends CI_Controller {
     }
 
     public function index() {
+        $this->load->model('login');
+        $tipo = $this->login->login($this->input->post('usuario'), $this->input->post('senha'));
         
-        
-        $this->form_validation->set_rules('email', 'email', 'trim|required|valid_email|callback__check_login');     //callback__check_login: chama a função criada logo abaixo
-
-        if ($this->form_validation->run())
-            die('Me loguei');     //Se foi retornado true da função _check_login
-
-        $this->load->view('login_view');    //Se não for encontrado o usuário, mantém a view 
-    }
-
-    public function _check_login($email) {
-        if ($this->input->post('senha')) {    //Se tiver alguma coisa no campo senha
-            $this->load->model('usuario_model');
-            $user = $this->usuario_model->get_usuario($email, $this->input->post('senha')); //Consulta se o usuário existe
-
-            if ($user)
-                return true;  //Se encontrar o usuário retorna true
+        if($tipo){
+            $novosDados = array(
+                'usuario'   => $this->input->post('usuario'),
+                'tipo'      => $tipo,
+                'logado'    => TRUE
+            );
+            
+            $this->session->set_userdata($novosDados);
+            
+            $url = base_url()."empresaController";
+            
+            header("Location: ".$url);
         }
-
-        //Se não encontrar o usuário
-        $this->form_validation->set_message('_check_login', 'Usuario / senha errado(s)');
-        return false;
+        else{
+            $data = array(
+                'AbaTitle'  => 'Home Empresa | UNIVERSIDADE ESTADUAL DE MONTES CLAROS',
+                'menu'      => 'LOGIN'
+            );
+            $this->template->load('template', 'login_cadastro/index', $data);
+        }       
     }
     
+    public function logout(){
+        $this->session->sess_destroy();
+        header("Location: ".base_url()."maincontroller");
+    }
+ 
     //Função para quando se esquece a Senha
     public function esqueci_senha(){
         echo "Esqueci Minha Senha";

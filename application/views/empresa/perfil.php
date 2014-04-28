@@ -1,5 +1,5 @@
 <div class="container_center">
-    <h3>Cadastro de Empresa</h3>
+    <h3>PERFIL <?php echo $nome; ?></h3>
     <?php echo validation_errors(); ?>
     <form class="form_cadastroEmpresa" name='cadastro_empresa' action='insertEmpresa' method='POST'>
         <img src="<?php echo base_url(); ?>assets/img/imagem-gray.png" class="img-thumbnail margin-bottom float-left" >
@@ -16,42 +16,26 @@
         <div class="form_left">
             <div class="group">
                 <label>Nome da Empresa</label>
-                <input class="input-large" type="text" id="nome" name='nome'>
-            </div>
-
-            <label>Usuário</label>
-            <div>
-                <input class="input-mini" type="text" id="usuario" name='usuario'>
-            </div>
-
-            <label>Senha</label>
-            <div>
-                <input class="input-mini" type="password" id="senha" name='senha'>
-            </div>
-
-            <label>Repita a Senha</label>
-            <div >
-                <input class="input-mini" type="password" id="repetirSenha" name='repetirSenha'>
-                <span class="spanError">As senhas não coincidem</span>
+                <input class="input-large" type="text" id="nome" name='nome' value="<?php echo $nome; ?>">
             </div>
 
             <label>Endereço</label>
             <div>
-                <input class="input-large" id="endereco" name="endereco" type="text"/>
+                <input class="input-large" id="endereco" name="endereco" type="text" value="<?php echo $logradouro; ?>"/>
             </div>
 
             <label>Nº</label>
-            <input class="input-mini" id="numero" name="numero" type="text"/>
+            <input class="input-mini" id="numero" name="numero" type="text" value="<?php echo $numero; ?>"/>
             <span style="margin-left: 10px; margin-right: 10px;">Complemento</span>
-            <input class="input-medium" id="complemento" name="complemento" type="text" />
+            <input class="input-medium" id="complemento" name="complemento" type="text" value="<?php echo $complemento; ?>"/>
 
             <label>Bairro</label>
-            <input class="input-medium" id="bairro" name="bairro" type="text"/>
+            <input class="input-medium" id="bairro" name="bairro" type="text" value="<?php echo $bairro; ?>"/>
             <span style="margin-left: 10px; margin-right: 10px;">Cep</span>
-            <input class="input-mini" id="cep" name="cep" type="text" maxlength="9" style="width: 100px;"/>
+            <input class="input-mini" id="cep" name="cep" type="text" maxlength="9" style="width: 100px;" value="<?php echo $cep; ?>"/>
 
             <label>Cidade</label>
-            <input id="cidade" name="cidade" type="text"/>
+            <input id="cidade" name="cidade" type="text" value="<?php echo $cidade; ?>"/>
             <span style="margin-left: 10px; margin-right: 10px;">UF</span>
             <select id="cidade" name="uf">
                 <option value="AC">AC</option>
@@ -84,17 +68,17 @@
             </select>
 
             <label>Telefone 1</label>
-            <input type="text" id="telefonePrincipal" name='telefonePrincipal'>
+            <input type="text" id="telefonePrincipal" name='telefonePrincipal' value="<?php echo $telefone; ?>">
             <img src="<?php echo base_url(); ?>assets/img/icons/mais.png" class="iconsCadastro float-right cursor" style="margin-right: 127px; margin-top: 2px;"/>
 
             <label>CNPJ</label>
             <div>
-                <input class="input-large" type="text" id="cnpj" name='cnpj'>
+                <input class="input-large" type="text" id="cnpj" name='cnpj' value="<?php echo $cnpj; ?>">
             </div>
 
             <label>Email</label>
             <div>
-                <input class="input-large" type="text" id='email' name='email' placeholder="teste@exemplo.com">
+                <input class="input-large" type="text" id='email' name='email' placeholder="teste@exemplo.com" value="<?php echo $email; ?>">
             </div>
 
         </div>
@@ -104,32 +88,32 @@
 
             <label>Web Site</label>
             <div>
-                <input class="input-large" type="text" id='webSite' name='webSite' placeholder="www.exemplo.com.br">
+                <input class="input-large" type="text" id='webSite' name='webSite' placeholder="www.exemplo.com.br" value="<?php echo $webSite; ?>">
             </div>
 
             <label>Facebook</label>
             <div>
-                <input class="input-large" type="text" id='facebook' name='facebook'>
+                <input class="input-large" type="text" id='facebook' name='facebook' value="<?php echo $enderecoRede; ?>">
             </div>
 
             <label style='width: 108px; margin-top: -6px;'>Horário de Funcionamento</label>
-            <input class="input-mini" type="text" id="horarioInicio" name='horarioInicio'>
+            <input class="input-mini" type="text" id="horarioInicio" name='horarioInicio' value="<?php echo $horarioFuncionamentoSemanaInicio; ?>">
             <span>ás</span>
-            <input class="input-mini" type="text" id="horarioTermino" name="horarioTermino">
+            <input class="input-mini" type="text" id="horarioTermino" name="horarioTermino" value="<?php echo $horarioFuncionamentoSemanaTermino; ?>">
 
             <div style="margin-top: 5px;">
                 <label style='width: 108px;'>Horário de Sábado</label>
-                <input class="input-mini" type="text" id="horarioSabadoInicio" name='horarioSabadoInicio'>
+                <input class="input-mini" type="text" id="horarioSabadoInicio" name='horarioSabadoInicio' value="<?php echo $horarioFuncionamentoSabadoInicio; ?>">
                 <span>ás</span>
-                <input class="input-mini" type="text" id="horarioSabadoTermino" name="horarioSabadoTermino">
+                <input class="input-mini" type="text" id="horarioSabadoTermino" name="horarioSabadoTermino" value="<?php echo $horarioFuncionamentoSabadoTermino; ?>">
             </div>
 
             <label>Informações Adicionais</label>
-            <textarea rows="4" cols="50" id="informacoesAdicionais" name='informacoesAdicionais'></textarea>
+            <textarea rows="4" cols="50" id="informacoesAdicionais" name='informacoesAdicionais' value="<?php echo $informacoesAdicionais; ?>"></textarea>
             
             <input type="hidden" value="1" id='tipo' name="tipo"/>
 
-            <button type="submit" class="btn" style='float: right; margin-left: 30px; margin-bottom: 30px; margin-top: 30px;'>Cadastrar</button>
+            <button type="submit" class="btn" style='float: right; margin-left: 30px; margin-bottom: 30px; margin-top: 30px;'>Salvar Alterações</button>
             <div style='float: right; margin-left: 30px; margin-bottom: 30px; margin-top: 30px;'><a href="<?php echo base_url(); ?>" class="btn">Cancelar</a></div>
 
         </div>

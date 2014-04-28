@@ -3029,6 +3029,30 @@ input[type="button"].btn-block {
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
           box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
+
+.dropdown-perfil {
+  text-align: center;
+  position: absolute;
+  top: 100%;
+  /*left: 0;*/
+  right: 30px;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 242px;
+  padding: 10px 10px 15px 10px;
+  margin: 2px 0 0;
+  font-size: 14px;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
 .dropdown-menu.pull-right {
   right: 0;
   left: auto;
@@ -3467,6 +3491,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a:focus {
   text-decoration: none;
   background-color: #eee;
+  /*background-color: #82A4D7; //hover do botão de login*/
 }
 .nav > li.disabled > a {
   color: #999;
@@ -3940,8 +3965,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #E05333;
-  /*border-color: #e7e7e7;*/
+  /*background-color: #E05333;*/
+  background-color: #F4F7FD;
+  border-color: #e7e7e7;
   -webkit-box-shadow:0 6px 13px #ccc;
     -moz-box-shadow:0 6px 13px #ccc;
     box-shadow:0 6px 13px #ccc;
@@ -3951,7 +3977,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default .logo {
-  color: #FFFFFF;
+  color: #4E4E4E;
 }
 
 .navbar-default .navbar-brand:hover,
@@ -3967,7 +3993,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #333;
+  /*color: #333;*/
   background-color: transparent;
 }
 .navbar-default .navbar-nav > .active > a,

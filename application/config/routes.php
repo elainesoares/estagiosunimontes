@@ -39,6 +39,7 @@
 */
 
 $route['default_controller'] = "MainController";   //Controller Padrão
+//$route['login'] = "login/login";   //Controller Padrão
 $route['404_override'] = '';
 
 

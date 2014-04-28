@@ -42,7 +42,7 @@ create table usuario(
 	cidade varchar(30) not null,
 	uf char(2) not null,
 	usuario varchar(12) not null,
-	senha varchar(10) not null,
+	senha varchar(25) not null,
 	email varchar(80) not null,
         webSite varchar(100),
 	imagem varchar(100),

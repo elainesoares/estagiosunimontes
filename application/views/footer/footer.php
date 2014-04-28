@@ -1,4 +1,4 @@
-<div class="footerTop">
+<div class="footerTop2">
     <div class="container_footer center">
         <ul>
             <li><a href="<?php echo base_url(); ?>">Home</a><span class="borderMenuFooter"></span></li>
@@ -12,7 +12,7 @@
     </div>
 </div>
 
-<div class="footerBottom">
+<div class="footerBottom2">
     <div class="container_footer center">
         © Copyright 2014 Elaine Soares Moreira. Todos os direitos reservados
     </div>

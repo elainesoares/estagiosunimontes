@@ -9,6 +9,16 @@ if (!defined('BASEPATH'))
  * @author Elaine Soares Moreira
  */
 class EmpresaController extends CI_Controller {
+    
+    public function index(){
+        $data = array(
+            'Abatitle'  => 'Home Empresa | UNIVERSIDADE ESTADUAL DE MONTES CLAROS',
+            'tipo'      => $this->session->userdata('tipo'),
+            'usuario'   => $this->session->userdata('usuario')
+        );
+        $this->template->load('template', 'empresa/home', $data);
+    }
+    
     /* Método de Cadastro de Empresa */
     public function cadastro() {
         $data = array(
@@ -98,6 +108,48 @@ class EmpresaController extends CI_Controller {
 //        }
 //        
     }
+    
+    function getUsuario(){
+        $usuario = $_POST['u'];
+        echo 'usuario: '.$usuario;
+        $this->load->model('empresa');
+        $this->empresa->getUsuario($usuario);
+    }
+    
+    public function perfil(){
+        $this->load->model('empresa');
+        $perfil = $this->empresa->getPerfil();
+        
+        $dataPerfil = array(
+            'Abatitle'  => 'Perfil Empresa | UNIVERSIDADE ESTADUAL DE MONTES CLAROS',
+            'tipo'      => $this->session->userdata('tipo'),
+            'usuario'   => $this->session->userdata('usuario'),
+            'nome'      => $perfil->nome,
+            'logradouro'    => $perfil->logradouro,
+            'numero'        => $perfil->numero,
+            'complemento'   => $perfil->complemento,
+            'bairro'        => $perfil->bairro,
+            'cep'           => $perfil->cep,
+            'cidade'        => $perfil->cidade,
+            'uf'            => $perfil->uf,
+            'email'         => $perfil->email,
+            'webSite'       => $perfil->webSite,
+            'imagem'        => $perfil->imagem,
+            'webSite'       => $perfil->webSite,
+            'telefone'      => $perfil->telefone,
+            'horarioFuncionamentoSemanaInicio'  => $perfil->horarioFuncionamentoSemanaInicio,
+            'horarioFuncionamentoSemanaTermino' => $perfil->horarioFuncionamentoSemanaTermino,
+            'horarioFuncionamentoSabadoInicio'  => $perfil->horarioFuncionamentoSabadoInicio,
+            'horarioFuncionamentoSabadoTermino' => $perfil->horarioFuncionamentoSabadoTermino,
+            'cnpj'                  => $perfil->cnpj,
+            'informacoesAdicionais' => $perfil->informacoesAdicionais,
+            'nomeRede'              => $perfil->nomeRede,
+            'enderecoRede'          => $perfil->enderecoRede,
+        );
+        $this->template->load('template', 'empresa/perfil', $dataPerfil);
+    }
 
 }
+
+
 

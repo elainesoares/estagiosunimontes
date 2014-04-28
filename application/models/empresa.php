@@ -24,6 +24,10 @@ class Empresa extends Usuario{
         parent::__construct();
     }
     
+    public function getUsuario($usuario){
+        echo $usuario;
+    }
+    
     /* Método para retornar o ultimo id cadastrado
      * return: retorna o max id (ultimo id)
      */
@@ -48,7 +52,7 @@ class Empresa extends Usuario{
 
     /* Descrição: Método de inserção de Empresa/Insituição
      * Parâmetros: $dataEmpresa: Dados da Empresa
-     * $dataUsuario: Dados do Usuario
+     * $dataempresa: Dados da Empresa
      */
     public function addEmpresa($dataEmpresa){
         $dataEmpresa['idFkUsuario'] = $this->getAtributo('idUsuario');  //Acrescenta no array $dataEmpresa a FK do Usuario
@@ -61,6 +65,19 @@ class Empresa extends Usuario{
         $this->setor->setAtributo('usuario', $dataSetor['usuario']);    //Seta o valor do atributo usuario na classe Setor
         $this->setor->setAtributo('senha', $dataSetor['senha']);    //Seta o valor do atributo senha na classe Setor
         $this->setor->addSetor($this->getMaxIdEmpresa());
+    }
+    
+    public function getPerfil(){
+        $this->db->select('*');    //Recupera o valor mais alto do id... (ou seja, o ultimo id cadastrado)
+        $this->db->from('usuario');     //da tabela empresa. 
+        $this->db->from('telefone');
+        $this->db->from('empresa');
+        $this->db->from('redeSocial');
+        $where = "telefone.idFkUsuario = usuario.id AND empresa.idFkUsuario = usuario.id AND redeSocial.idFkEmpresa = empresa.id";
+        $this->db->where($where);
+        $query = $this->db->get();
+        $resultado = $query->row();     //Como está sendo retornado apenas uma linhas, pode-se utilizar o método row()
+        return $resultado;
     }
 }
 

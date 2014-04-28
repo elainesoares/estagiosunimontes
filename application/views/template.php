@@ -32,7 +32,15 @@
     <body>
         <!--<div style='min-height: 100%; position: relative'>-->
             <!--Include do menu da página de Login e Cadastro-->
-            <?php $this->load->view('menu/menu_login')?>
+            <?php 
+                if($this->session->userdata('tipo') == '1'){   //Tipo Empresa
+                    $this->load->view('menu/menu_empresa');
+                }
+                
+                else{   //Nenhum Usuário Logado
+                    $this->load->view('menu/menu_login');
+                }
+            ?>
 
             <!--Include do conteúdo-->
             <?php echo $contents; ?>

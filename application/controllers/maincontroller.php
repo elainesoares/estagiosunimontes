@@ -5,22 +5,20 @@ if (!defined('BASEPATH'))
 
 class MainController extends CI_Controller {
     /* O método index é automaticamente chamado quando não se define o método */
-    public function index() {
-        //$this->load->helper("form");    //Adiciona a biblioteca (helper) form ao sistema
-//            $this->load->model('usuario_model');    //Carrega o model usuario_model
-//            $data['usuarios'] = $this->usuario_model->get_all("");    //Recebe os valores retornados do método get_all
-//            $this->load->view('main_view', $data);   //Chama a view welcome_message
-//            $this->load->view('login_view');
-//        $this->load->library('parser');
-//        $dados = array(
-//            'Abatitle' => 'ESTÁGIOS | UNIVERSIDADE ESTADUAL DE MONTES CLAROS',
-//        );
-//        $this->parser->parse('index', $dados);  //index é o nome da view e dados a variável com os dados
+    public function index(){
         $data = array(
-            'AbaTitle' => 'ESTÁGIOS | UNIVERSIDADE ESTADUAL DE MONTES CLAROS',
+            'Abatitle'  => 'ESTÁGIOS | UNIVERSIDADE ESTADUAL DE MONTES CLAROS',
+            'tipo'      => $this->session->userdata('tipo'),
+            'usuario'   => $this->session->userdata('usuario')
         );
         $this->load->library('template');
-        $this->template->load('template', 'login_cadastro/index', $data);
+        echo $this->session->userdata('tipo');
+        if($this->session->userdata('tipo') == '1'){
+            $this->template->load('template', 'empresa/home', $data);
+        }
+        else{
+            $this->template->load('template', 'login_cadastro/index2', $data);
+        }
     }
 
     public function create_usuario() {
