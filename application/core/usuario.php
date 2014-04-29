@@ -9,7 +9,7 @@ require(APPPATH.'models/telefone.php');
 class Usuario extends CI_Model{
     //Atributos
     private $nome;
-    private $telefone;
+    private $tel;
     private $logradouro;
     private $numero;
     private $complemento;
@@ -28,6 +28,7 @@ class Usuario extends CI_Model{
     //Método construtor
     function __construct() {
         parent::__construct();
+        $this->tel = new Telefone; //Instancia um objeto da classe Telefone
     }
     
     /* Método para retornar o valor de um atributo
@@ -54,17 +55,24 @@ class Usuario extends CI_Model{
      * $telefone: numero de telefone
      */
     public function insertTelefone($telefone){
-        $this->tel = new Telefone; //Instancia um objeto da classe Telefone
         $this->tel->setAtributo('telefone', $telefone);     //Seta o valor do atributo telefone na classe Telefone
         $this->tel->addTelefone($this->getMaxId());
+    }
+    
+    public function updateTelefone($idUsuario, $telefone){
+        $this->tel->updateTelefone($idUsuario, $telefone);
     }
 
     /* Método para adicionar o Usuário no Banco de Dados
      * $dataUsuario: dados a serem inseridos na tabela usuario
-     * $telefone: telefone a ser inserido na tabela telefone
      */ 
     public function addUsuario($dataUsuario){
         $this->db->insert('usuario', $dataUsuario);     //Inserindo no banco de dados. Tabela usuario
+    }
+    
+    public function updateUsuario($dataUsuario){
+        $this->db->where('id', $dataUsuario['id']);
+        $this->db->update('usuario', $dataUsuario);
     }
     
 }

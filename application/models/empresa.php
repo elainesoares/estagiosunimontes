@@ -22,6 +22,7 @@ class Empresa extends Usuario{
     //Método construtor
     function __construct() {
         parent::__construct();
+        $this->redeSocial = new RedeSocial;    //Instancia um objeto da classe RedeSocial
     }
     
     public function getUsuario($usuario){
@@ -40,18 +41,20 @@ class Empresa extends Usuario{
         return $this->idEmpresa;      //Retorna o max id da tabela empresa
     }
     
-    /* Método que chamará a função addTelefone da classe Telefone
+    /* Método que chamará a função addRedeSocial da classe RedeSocial
      * $dataRedeSocial: dados da rede social
      */
     public function insertRedeSocial($dataRedeSocial){
-        $this->redeSocial = new RedeSocial;    //Instancia um objeto da classe RedeSocial
         $this->redeSocial->setAtributo('nomeRede', $dataRedeSocial['nomeRede']);     //Seta o valor do atributo nomeRede na classe RedeSocial
         $this->redeSocial->setAtributo('enderecoRede', $dataRedeSocial['enderecoRede']);    //Seta o valor do atributo enderecoRede na classe RedeSocial
         $this->redeSocial->addRedeSocial($this->getMaxIdEmpresa());
     }
+    
+    public function updateRedeSocial($idUsuario, $dataRedeSocial){
+        $this->redeSocial->updateRedeSocial($idUsuario, $dataRedeSocial);
+    }
 
-    /* Descrição: Método de inserção de Empresa/Insituição
-     * Parâmetros: $dataEmpresa: Dados da Empresa
+    /* Descrição: Método de inserção de Empresa
      * $dataempresa: Dados da Empresa
      */
     public function addEmpresa($dataEmpresa){
@@ -59,6 +62,9 @@ class Empresa extends Usuario{
         $this->db->insert('empresa', $dataEmpresa);     //Insere na tabela empresa
     }
     
+    /* Salva no BD o setor cadastrado
+     * $dataSetor: dados do setor
+     */
     public function insertSetor($dataSetor){
         $this->setor = new Setor;    //Instancia um objeto da classe Setor
         $this->setor->setAtributo('nome', $dataSetor['nome']);     //Seta o valor do atributo nome na classe Setor
@@ -67,17 +73,22 @@ class Empresa extends Usuario{
         $this->setor->addSetor($this->getMaxIdEmpresa());
     }
     
-    public function getPerfil(){
+    public function getPerfil($usuario){
         $this->db->select('*');    //Recupera o valor mais alto do id... (ou seja, o ultimo id cadastrado)
         $this->db->from('usuario');     //da tabela empresa. 
         $this->db->from('telefone');
         $this->db->from('empresa');
         $this->db->from('redeSocial');
-        $where = "telefone.idFkUsuario = usuario.id AND empresa.idFkUsuario = usuario.id AND redeSocial.idFkEmpresa = empresa.id";
+        $where = "telefone.idFkUsuario = usuario.id AND empresa.idFkUsuario = usuario.id AND redeSocial.idFkEmpresa = empresa.id AND usuario.usuario = '$usuario'";
         $this->db->where($where);
         $query = $this->db->get();
         $resultado = $query->row();     //Como está sendo retornado apenas uma linhas, pode-se utilizar o método row()
         return $resultado;
+    }
+    
+    public function updateEmpresa($idUsuario, $dataEmpresa){
+        $this->db->where('id', $idUsuario);
+        $this->db->update('empresa', $dataEmpresa);
     }
 }
 

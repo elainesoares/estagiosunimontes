@@ -1,7 +1,7 @@
 <div class="container_center">
+    <div><?php echo $msg?></div>
     <h3>PERFIL <?php echo $nome; ?></h3>
-    <?php echo validation_errors(); ?>
-    <form class="form_cadastroEmpresa" name='cadastro_empresa' action='insertEmpresa' method='POST'>
+    <form class="form_cadastroEmpresa" name='cadastro_empresa' action='salvar_alteracoes_perfil' method='POST'>
         <img src="<?php echo base_url(); ?>assets/img/imagem-gray.png" class="img-thumbnail margin-bottom float-left" >
         <span class="float-left margin-left">
             Suba a logo da sua empresa
@@ -73,7 +73,7 @@
 
             <label>CNPJ</label>
             <div>
-                <input class="input-large" type="text" id="cnpj" name='cnpj' value="<?php echo $cnpj; ?>">
+                <input class="input-large" type="text" id="cnpj" name='cnpj' value="<?php echo $cnpj; ?>" disabled="disabled">
             </div>
 
             <label>Email</label>
@@ -110,8 +110,8 @@
 
             <label>Informações Adicionais</label>
             <textarea rows="4" cols="50" id="informacoesAdicionais" name='informacoesAdicionais' value="<?php echo $informacoesAdicionais; ?>"></textarea>
-            
-            <input type="hidden" value="1" id='tipo' name="tipo"/>
+
+            <input type="hidden" value="<?php echo $id; ?>" id='id' name="id"/>
 
             <button type="submit" class="btn" style='float: right; margin-left: 30px; margin-bottom: 30px; margin-top: 30px;'>Salvar Alterações</button>
             <div style='float: right; margin-left: 30px; margin-bottom: 30px; margin-top: 30px;'><a href="<?php echo base_url(); ?>" class="btn">Cancelar</a></div>

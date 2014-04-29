@@ -1,2 +1,1 @@
-<!--Conteúdo da tela de login e cadastro-->
-Home Empresa
+<div class="container_center" style='height: 450px;'></div>

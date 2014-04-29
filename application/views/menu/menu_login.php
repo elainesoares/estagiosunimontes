@@ -13,7 +13,7 @@
                 <li class="dropdown">
                     <a class="dropdown-toggle login" data-toggle="dropdown" style="">Entrar</a>
                     <ul class="dropdown-menu">
-                        <form name='login' action="loginController/index" method='POST' style="margin-left: auto; margin-right: auto; width: 200px;">
+                        <form name='login' action="<?php echo base_url()?>/loginController/index" method='POST' style="margin-left: auto; margin-right: auto; width: 200px;">
                             <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuário" style="margin-bottom: 10px;" >
                             <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" style="margin-bottom: 10px;">
                             <button name="entrarPopup" type="submit" class="btn btn-primary" style="padding: 5px 80px; margin-bottom: 10px; font-weight: bold; ">Entrar</button>

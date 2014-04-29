@@ -8,7 +8,7 @@
             <div class="container_header center">
                 <ul>
                     <li><a href="<?php echo base_url(); ?>">Home</a></li>
-                    <li><a href="<?php echo base_url(); ?>empresaController/cadastro">Empresa</a></li>
+                    <li><a href="<?php echo base_url(); ?>">Empresa</a></li>
                     <li><a href="<?php echo base_url(); ?>">Vagas</a></li> 
                 </ul>
             </div>

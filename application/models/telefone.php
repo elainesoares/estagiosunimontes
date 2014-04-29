@@ -13,14 +13,6 @@ class Telefone extends CI_Model{
        parent::__construct();
    }
    
-//   public function __set($campo, $valor) {
-//       $this->$campo = $valor;
-//   }
-   
-//   public function __get($campo) {
-//       return $this->$campo;
-//   }
-   
    /* Método para atribuir um valor a um atributo
     * $campo: nome do atributo
     * $valor: valor a ser salvo no atributo
@@ -48,5 +40,10 @@ class Telefone extends CI_Model{
         );
         
         $this->db->insert('telefone', $dataTelefone);   //Insere na tabela telefone
+   }
+   
+   public function updateTelefone($idUsuario, $telefone){
+       $this->db->where('id', $idUsuario);
+       $this->db->update('telefone', $telefone);
    }
 }

@@ -1,7 +1,5 @@
 <div class="container_center" style='height: 450px;'>
-    <h3>Cadastro de Setor</h3>
-    <?php echo validation_errors(); ?>
-    
+    <h3>Cadastro de Setor</h3>    
     <form class="form_cadastroSetor" name='cadastro_setor' action='insertSetor' method='POST'>
         <!--Lateral Esquerda do formulário de Cadastro-->
         <div class="form_left">

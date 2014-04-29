@@ -34,4 +34,9 @@ class RedeSocial extends CI_Model{
         
         $this->db->insert('redeSocial', $dataRedeSocial);
     }
+    
+    public function updateRedeSocial($idUsuario, $dataRedeSocial){
+        $this->db->where('id', $idUsuario);
+        $this->db->update('redeSocial', $dataRedeSocial);
+    }
 }

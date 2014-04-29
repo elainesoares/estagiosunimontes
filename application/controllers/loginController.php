@@ -7,23 +7,25 @@ require(APPPATH.'controllers/empresaController.php');
  * @author Elaine
  */
 class LoginController extends CI_Controller {
-
+    //Método construtor
     public function __construct() {
         parent::__construct();
     }
 
+    //Envia para o model login os dados para verificação de login
     public function index() {
         $this->load->model('login');
         $tipo = $this->login->login($this->input->post('usuario'), $this->input->post('senha'));
-        
-        if($tipo){
+        echo $tipo;
+        if($tipo == '1'){
+            //Dados a serem gravados na sessão de usuário
             $novosDados = array(
                 'usuario'   => $this->input->post('usuario'),
                 'tipo'      => $tipo,
                 'logado'    => TRUE
             );
             
-            $this->session->set_userdata($novosDados);
+            $this->session->set_userdata($novosDados);  //Gravando os novos dados na sessão
             
             $url = base_url()."empresaController";
             

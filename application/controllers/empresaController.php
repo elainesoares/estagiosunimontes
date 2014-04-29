@@ -19,21 +19,25 @@ class EmpresaController extends CI_Controller {
         $this->template->load('template', 'empresa/home', $data);
     }
     
-    /* Método de Cadastro de Empresa */
+    /* Carrega a view com o formulário de cadastro de empresa */
     public function cadastro() {
         $data = array(
             'Abatitle' => 'Cadastro de Empresa | UNIVERSIDADE ESTADUAL DE MONTES CLAROS',
         );
-        $this->template->load('template', 'empresa/cadastro_empresa', $data);
+        $this->template->load('template', 'empresa/cadastro_empresa', $data);   
     }
     
-    public function cadastro_setor(){
+    /* Carrega a view com o formulário de cadastro de setor
+     */
+    public function cadastroSetor(){
         $data = array(
             'Abatitle' => 'Cadastro de Setor | UNIVERSIDADE ESTADUAL DE MONTES CLAROS',
         );
         $this->template->load('template', 'empresa/cadastro_setor', $data);
     }
     
+    /* Envia para o método insertSetor no model empresa os dados do setor, a fim de ser cadastrado no BD
+     */
     public function insertSetor(){
         $dataSetor = array(
             'nome'      => $this->input->post('nome'),
@@ -43,10 +47,16 @@ class EmpresaController extends CI_Controller {
         
         $this->load->model('empresa');
         $this->empresa->insertSetor($dataSetor);
+        
+//         $data = array(
+//            'Abatitle' => 'Cadastro de Setor | UNIVERSIDADE ESTADUAL DE MONTES CLAROS',
+//        );
+//        $this->template->load('template', 'empresa/success_cadastro_setor', $data);
     }
 
+    /* Envia os dados do formulário de cadastro para o model empresa, a fim de ser salvo no BD*/
     public function insertEmpresa() {  
-        //Recebendo dados do formulário de cadastro da empresa. Dados da classe Usuario e Telefone
+        //Recebendo dados do formulário de cadastro da empresa. Dados da classe Usuario
         $dataUsuario = array(
             'nome'          => $this->input->post('nome'),
             'logradouro'    => $this->input->post('endereco'),
@@ -88,25 +98,7 @@ class EmpresaController extends CI_Controller {
         $this->empresa->addEmpresa($dataEmpresa);   //Cadastra a Empresa
         $this->empresa->insertRedeSocial($dataRedeSocial);
         
-        $this->cadastro_setor();
-        
-//        $this->load->model('telefone');    //Carregando o model empresa
-//        $this->load->model('idioma');    //Carregando o model empresa
-//        $this->telefone->addTelefone($dataUsuario, $dataTelefone);
-
-//        $this->empresa->add_empresa($dataEmpresa, $dataUsuario);  //Enviando os dados da Empresa
-        
-//        $this->load->model('telefone'); //Carregando o model telefone
-        
-        
-//        if ($this->empresa->add_empresa($data)) {    //Chama a função que irá gravar no banco o array $data
-//            $this->session->set_flashdata('sucess', 'Cadastro Efetuado com Sucesso!');
-//            redirect('empresaInstituicao/cadastro');
-//        } else {    //Chama a função que irá gravar no banco o array $data
-//            $this->session->set_flashdata('error', 'Erro ao Efetuar Cadastro');
-//            redirect('empresaInstituicao/cadastro');
-//        }
-//        
+         header("Location: ".  base_url().'empresaController/cadastroSetor');    
     }
     
     function getUsuario(){
@@ -116,14 +108,15 @@ class EmpresaController extends CI_Controller {
         $this->empresa->getUsuario($usuario);
     }
     
-    public function perfil(){
+    public function perfil($msg = NULL){
         $this->load->model('empresa');
-        $perfil = $this->empresa->getPerfil();
+        $perfil = $this->empresa->getPerfil($this->session->userdata('usuario'));
         
         $dataPerfil = array(
             'Abatitle'  => 'Perfil Empresa | UNIVERSIDADE ESTADUAL DE MONTES CLAROS',
             'tipo'      => $this->session->userdata('tipo'),
             'usuario'   => $this->session->userdata('usuario'),
+            'id'        => $perfil->id,
             'nome'      => $perfil->nome,
             'logradouro'    => $perfil->logradouro,
             'numero'        => $perfil->numero,
@@ -145,8 +138,60 @@ class EmpresaController extends CI_Controller {
             'informacoesAdicionais' => $perfil->informacoesAdicionais,
             'nomeRede'              => $perfil->nomeRede,
             'enderecoRede'          => $perfil->enderecoRede,
+            'msg'                   => $msg
         );
+//        echo $perfil->id;
         $this->template->load('template', 'empresa/perfil', $dataPerfil);
+    }
+    
+    /* Recebe os dados alterados do perfil da empresa e envia para o model para salvá-los no BD
+     */
+    public function salvar_alteracoes_perfil(){
+        $dataUsuario = array(
+            'id'            => $this->input->post('id'),
+            'nome'          => $this->input->post('nome'),
+            'logradouro'    => $this->input->post('endereco'),
+            'numero'        => $this->input->post('numero'),
+            'complemento'   => $this->input->post('complemento'),
+            'bairro'        => $this->input->post('bairro'),
+            'cep'           => $this->input->post('cep'),
+            'cidade'        => $this->input->post('cidade'),
+            'uf'            => $this->input->post('uf'),
+            'email'         => $this->input->post('email'),
+            'webSite'       => $this->input->post('webSite'),
+            'imagem'        => $this->input->post('imagem')
+        );
+        
+         $dataRedeSocial = array(
+            'nomeRede' => 'facebook',
+            'enderecoRede' => $this->input->post('facebook')
+        );
+
+        //Dados da classe Empresa
+        $dataEmpresa = array(
+            'horarioFuncionamentoSemanaInicio'  => $this->input->post('horarioInicio'),
+            'horarioFuncionamentoSemanaTermino' => $this->input->post('horarioTermino'),
+            'horarioFuncionamentoSabadoInicio'  => $this->input->post('horarioSabadoInicio'),
+            'horarioFuncionamentoSabadoTermino' => $this->input->post('horarioSabadoTermino'),
+            'informacoesAdicionais'             => $this->input->post('informacoesAdicionais')
+        );
+        
+        $telefone = array(
+            'telefone' => $this->input->post('telefonePrincipal')
+        );
+        
+        $this->load->model('empresa');    //Carregando o model empresa
+        $this->empresa->updateUsuario($dataUsuario); 
+        $this->empresa->updateTelefone($dataUsuario['id'], $telefone);
+        $this->empresa->updateEmpresa($dataUsuario['id'], $dataEmpresa); 
+        $this->empresa->updateRedeSocial($dataUsuario['id'], $dataRedeSocial);
+         
+        $msg_salvamento = 'Alterações salvas com sucesso!';
+        $this->perfil($msg_salvamento);
+        
+
+//        $this->empresa->addEmpresa($dataEmpresa);   //Cadastra a Empresa
+//        $this->empresa->insertRedeSocial($dataRedeSocial);
     }
 
 }
